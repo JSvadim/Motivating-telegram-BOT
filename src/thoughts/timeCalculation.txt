@@ -1,0 +1,41 @@
+!!might be I should use user timezone?
+
+It seems I will need to save information about sending phrase to user.
+Because if I check user times for instance once in 20 minutes, I should
+set condition: 
+serverTime - timeDifference > 530 && serverTime - timeDifference <= 550.
+
+But if I have lots of users and one user has time difference 0 and server
+executes time check at 530 mins on server? In this case next check will be
+at 550 mins, that scares, since user can be left without morning message.
+
+If same time I change a condition and expand time range from 531 - 550 
+to 531 - 560, user can catch double message if time check will be at 
+532 mins(userTime) and next at(552).
+
+
+difference = userTime - serverTime;
+if negative - server time is bigger;
+
+sever time is 530 
+I will call time check every 20 minutes
+
+1) user difference is 20min
+2) user difference is -25min
+3) user difference is 119min
+4) user difference is -106min
+
+
+1) 530 - 20 = 510
+2) 530 - (-25) = 555
+3) 530 - 119 = 411
+4) 530 - 106 = 424
+
+
+
+/* 
+    user times: 
+    morning: 540,
+    afternoon: 1020,
+    evening: 1260, 
+*/

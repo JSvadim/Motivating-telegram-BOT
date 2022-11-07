@@ -1,0 +1,39 @@
+BOT COMMANDS:
+
+    /add morning phrase
+    /add evening phrase
+    /add fact
+
+    /info
+    /start
+    /updateUserData
+
+    /morning phrases list
+    /evening phrases list
+    /facts list
+
+    /remove morning phrase
+    /remove evening phrase
+    /remove fact
+
+
+1 -- bot will send user motivational phrases at 9 AM and at 6 PM. And also
+     two facts or definitions, which user wanna memorize at 1PM. 
+     
+     My plan is to get difference between server time and user time, so then
+     each 20 minutes I will get all users, calculate time of each user and
+     if time is around one of those three points - send two facts or moti-
+     vating phrases.
+
+     If user don't have any phrase he gets message, that he has no phrases.
+
+
+2 -- save new user to database (
+     instead of using one "get" request to check if user already exists and
+     if no adding him in second "post" request, 
+     try to use one request and handle db error if user already exists.
+     GOOGLE HOW TO HANDLE ERRORS PROPERLY);
+
+3 -- user can add phrases and facts, also he can check out lists of his 
+     phrases and facts. If some of users phrases became useless, user can 
+     use Phrase ID and remove it.
